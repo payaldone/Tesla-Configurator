@@ -1,0 +1,52 @@
+<div class="container">
+  <h2>Step 3 : Summary</h2>
+  <h4>Your Tesla {{summary.description}}</h4>
+  <div class="row">
+    <div class="col-md-4">
+      <span>{{summary.config.description}}</span>
+      <div>
+        <small>Range: {{summary.config.range}} miles - Max speed: {{summary.config.speed}}</small>
+      </div>
+    </div>
+    <div class="col-md-4 offset-md-4">
+      <span>{{summary.config.price | currency}}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <span>{{summary.color.description}} Color</span>
+    </div>
+    <div class="col-md-4 offset-md-4">
+      <span>{{summary.color.price | currency}}</span>
+    </div>
+  </div>
+  <div class="row" *ngIf="summary?.towHitch">
+    <div class="col-md-4">
+      <span>Tow Hitch Package :</span>
+    </div>
+    <div class="col-md-4 offset-md-4">
+      <span>{{1000 | currency}}</span>
+    </div>
+  </div>
+  <div class="row" *ngIf="summary?.yoke">
+    <div class="col-md-4">
+      <span>Yoke Steering Wheel Package</span>
+    </div>
+    <div class="col-md-4 offset-md-4">
+      <span>{{1000 | currency}}</span>
+    </div>
+  </div>
+  <hr class="hr hr-blurry" />
+  <div class="row">
+    <div class="col-md-4">
+      <h5>TOTAL COST</h5>
+    </div>
+    <div class="col-md-4 offset-md-4">
+      <span>{{totalCost | currency}}</span>
+    </div>
+  </div>
+  <hr class="hr hr-blurry" />
+  <div>
+    <img *ngIf="selectedCarImage !='' " [src]="selectedCarImage" alt="Tesla Car Image">
+  </div>
+</div>

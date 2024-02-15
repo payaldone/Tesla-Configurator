@@ -1,0 +1,33 @@
+<h2>Step 2 : Select your config and options</h2>
+<div>
+    <label for="configSelect">Config:</label>
+    <select id="configSelect" #configSelect (change)="onConfigChange(configSelect.value)">
+        <option value="none" disabled selected>Choose...</option>
+        <option *ngFor="let config of selectedCarOption?.configs"
+            [selected]="config?.description == selectedCarSummary.config.description" [value]="config?.description">
+            {{config.description }}</option>
+    </select>
+</div>
+
+<div *ngIf="selectedCarConfig">
+    <span>Range: {{selectedCarConfig.range}} miles - </span>
+    <span>Max speed: {{selectedCarConfig.speed}} - </span>
+    <span>Cost: {{selectedCarConfig.price | currency}}</span>
+</div>
+
+<div *ngIf="selectedCarOption?.towHitch || selectedCarOption?.yoke">
+    <div *ngIf="selectedCarOption?.towHitch">
+        <label for="includeTow">Tow hitch?</label>
+        <input id="includeTow" name="towHitch" type="checkbox" (change)="onCheckChange($event)"
+            [checked]="selectedCarSummary.towHitch">
+    </div>
+    <div *ngIf="selectedCarOption?.yoke">
+        <label for="includeYoke">Yoke steering wheel?</label>
+        <input id="includeYoke" name="yoke" type="checkbox" (change)="onCheckChange($event)"
+            [checked]="selectedCarSummary.yoke">
+    </div>
+</div>
+
+<div>
+    <img *ngIf="selectedCarImage !='' " [src]="selectedCarImage" alt="Tesla Car Image">
+</div>

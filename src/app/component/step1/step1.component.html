@@ -1,0 +1,21 @@
+<h2>Step 1 : Choose your Model and color</h2>
+<div class="form-group">
+    <label for="modelSelect">Model:</label>
+    <select id="modelSelect" #changeModel (change)="onModelChange(changeModel.value)">
+        <option value="" disabled selected>Choose...</option>
+        <option *ngFor="let model of modelsData" [selected]="model?.code == summary.code" [value]="model?.code">
+            {{model?.description}}</option>
+    </select>
+</div>
+
+<div class="form-group" *ngIf="summary?.code!='' && summary?.color?.code!=''">
+    <label for="colorSelect">Color:</label>
+    <select id="colorSelect" #colorSelect (change)="onColorChange(colorSelect.value)">
+        <option *ngFor="let color of selectedModel?.colors" [selected]="color?.description == summary.color.description"
+            [value]="color?.code">{{color.description}}
+        </option>
+    </select>
+</div>
+<div>
+    <img *ngIf="selectedCarImage !='' " [src]="selectedCarImage" alt="Tesla Car Image">
+</div>
