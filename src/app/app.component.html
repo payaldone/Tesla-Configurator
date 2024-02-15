@@ -1,7 +1,6 @@
 <nav>
   <button type="button" id="step1" style="width: 31%" routerLink="step1">Step 1</button>
   <button type="button" id="step2" style="width: 31%" routerLink="step2" [disabled]="summary.code == ''">Step 2</button>
-  <button type="button" id="step3" style="width: 31%" routerLink="step3"
-    [disabled]="summary.config.description  == ''">Step 3</button>
+  <button type="button" id="step3" style="width: 31%" routerLink="step3" [disabled]="summary.config.description  == ''">Step 3</button>
 </nav>
 <router-outlet></router-outlet>

@@ -15,7 +15,7 @@ export class AppComponent {
   constructor(private teslaService: TeslaService) { }
 
   ngOnInit(): void {
-    //get summary data to disabled route
+    // To get summary data for disabling route.
     this.teslaService.getSummaryData().subscribe(data => {
       this.summary = data;
     })

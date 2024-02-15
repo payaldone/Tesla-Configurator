@@ -21,20 +21,18 @@ constructor(private teslaService: TeslaService){}
 ngOnInit(): void{
 this.teslaService.getSummaryData().subscribe(response=> {
   this.summary = response;
-  console.log("test",this.summary);
   this.selectedCarImage = `${Image_URL}/${this.summary?.code}/${this.summary?.color?.code}.jpg`
   this.getTotalCost();
 })
 }
 
 /**
- * Method to get total cost of car
+ * @description Method to get total cost of the car
  */
 getTotalCost():void{
 const baseCost = (this.summary?.config?.price ?? 0) + (this.summary?.color?.price ?? 0);
 const additionalCost = this.calculateAdditionalCost();
 this.totalCost = baseCost + additionalCost;
-console.log(this.totalCost)
 }
 
 /**

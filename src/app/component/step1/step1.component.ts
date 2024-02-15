@@ -25,7 +25,6 @@ export class Step1Component {
 
       this.teslaService.getSummaryData().subscribe(response => {
         this.summary = response;
-        //find matching car model
         if (this.summary?.code) {
           const matchingCarModel = this.modelsData?.find(carModel => carModel?.code === this.summary?.code);
           if (matchingCarModel) {
@@ -39,7 +38,7 @@ export class Step1Component {
 
   /**
    * @description Method to select/change model and match with modelsData.Matched data stored in summary variable 
-   *  and pass summary variable to setSummaryData for next steps2 nad step3 reference.
+   *  and pass summary variable to setSummaryData for next steps2 and step3 reference.
    * @param modelCode 
    */
   onModelChange(modelCode: string) {
@@ -53,7 +52,6 @@ export class Step1Component {
       this.summary.towHitch = false;
       this.summary.yoke = false;
       this.selectedCarImage = this.createCarImageURL(this.summary?.code, this.summary?.color?.code)
-      //set data to setSummary function
       this.teslaService.setSummaryData(this.summary);
     }
   }

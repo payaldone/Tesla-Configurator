@@ -22,7 +22,6 @@ export class Step2Component {
   constructor(private teslaService: TeslaService) { }
 
   ngOnInit(): void {
-    //get selected car data from step 1
     this.teslaService.getSummaryData().subscribe(response => {
       this.selectedCarSummary = response;
       this.selectedCarImage = `${Image_URL}/${this.selectedCarSummary?.code}/${this.selectedCarSummary?.color?.code}.jpg`
@@ -55,7 +54,7 @@ export class Step2Component {
   /**
    * Method to checked/unchecked towHitch or yoke checkbox
    * @param event 
-   * @returns 
+   * 
    */
   onCheckChange(event: Event): void {
     const target = event?.target as HTMLInputElement;

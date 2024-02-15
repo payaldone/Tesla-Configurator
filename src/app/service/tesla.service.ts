@@ -13,7 +13,7 @@ export class TeslaService {
   constructor(private http: HttpClient) { }
 
   /**
-   * @description This subject created to get latest emmited value to subcriber. 
+   * @description This subject is created to get latest emmited value. 
    */
   public summaryData = new BehaviorSubject<Summary>
     ({
@@ -53,7 +53,7 @@ export class TeslaService {
   }
 
   /**
-   * Method to set summary data
+   * @description Method to set summary data
    * @param summaryData 
    */
   setSummaryData(summaryData: Summary) {
